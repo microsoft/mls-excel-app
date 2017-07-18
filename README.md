@@ -241,6 +241,9 @@ In order to update the deployment, you need to have the project cloned to your d
 
 This will minify all of the necessary files and place them in the [docs](docs/) directory, which is where GitHub Pages will look for the files needed for them to host the application.  Then push the new files to the master branch.
 
+## License
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact opencode@microsoft.com with any additional questions or comments. 
+
 
 
 
