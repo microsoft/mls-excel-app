@@ -20,8 +20,8 @@
   <Description DefaultValue="MLS Excel Add-in for accessing service APIs deployed on your server"/>
 
   <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
-  <IconUrl DefaultValue="https://brandonkoch6.github.io/mls-excel-app/assets/icon-32.png" />
-  <HighResolutionIconUrl DefaultValue="https://brandonkoch6.github.io/mls-excel-app/assets/hi-res-icon.png"/>
+  <IconUrl DefaultValue="https://microsoft.github.io/mls-excel-app/assets/icon-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://microsoft.github.io/mls-excel-app/assets/hi-res-icon.png"/>
 
   <!--If you plan to submit this add-in to the Office Store, uncomment the SupportUrl element below-->
   <!--<SupportUrl DefaultValue="[Insert the URL of a page that provides support information for the app]">-->
@@ -39,7 +39,7 @@
     <Host Name="Workbook" />
   </Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://brandonkoch6.github.io/mls-excel-app/index.html" />
+    <SourceLocation DefaultValue="https://microsoft.github.io/mls-excel-app/index.html" />
   </DefaultSettings>
   <!-- End TaskPane Mode integration.  -->
 
@@ -119,14 +119,14 @@
     <!-- You can use resources across hosts and form factors. -->
     <Resources>
       <bt:Images>
-        <bt:Image id="MLServer.tpicon_16x16" DefaultValue="https://brandonkoch6.github.io/mls-excel-app/assets/icon-16.png" />
-        <bt:Image id="MLServer.tpicon_32x32" DefaultValue="https://brandonkoch6.github.io/mls-excel-app/assets/icon-32.png" />
-        <bt:Image id="MLServer.tpicon_80x80" DefaultValue="https://brandonkoch6.github.io/mls-excel-app/assets/icon-80.png" />
+        <bt:Image id="MLServer.tpicon_16x16" DefaultValue="https://microsoft.github.io/mls-excel-app/assets/icon-16.png" />
+        <bt:Image id="MLServer.tpicon_32x32" DefaultValue="https://microsoft.github.io/mls-excel-app/assets/icon-32.png" />
+        <bt:Image id="MLServer.tpicon_80x80" DefaultValue="https://microsoft.github.io/mls-excel-app/assets/icon-80.png" />
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="MLServer.Taskpane.Url" DefaultValue="https://brandonkoch6.github.io/mls-excel-app/index.html" />
+        <bt:Url id="MLServer.Taskpane.Url" DefaultValue="https://microsoft.github.io/mls-excel-app/index.html" />
         <bt:Url id="MLServer.GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
-        <bt:Url id="MLServer.DesktopFunctionFile.Url" DefaultValue="https://brandonkoch6.github.io/mls-excel-app/function-file/function-file.html" />
+        <bt:Url id="MLServer.DesktopFunctionFile.Url" DefaultValue="https://microsoft.github.io/mls-excel-app/function-file/function-file.html" />
       </bt:Urls>
       <!-- ShortStrings max characters==125. -->
       <bt:ShortStrings>
