@@ -1,0 +1,52 @@
+<section class="ms-firstrun-trial-feature__content ms-font-m ms-fontColor-neutralPrimary">
+  <h2 class="ms-font-xl ms-fontWeight-light">MLS Local Authentication</h2>
+  <div class="ms-firstrun-trial-feature__login-panel">
+    <form class="ms-firstrun-trial-feature__form" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <p class="ms-firstrun-trial-feature__input ">
+        <label for="connection">Connection</label>
+        <input id="connection" class="input__username" type="text" name="connection" required [ngModel]="config.connection" #connection="ngModel"
+        />
+      </p>
+      <p class="ms-firstrun-trial-feature__input ">
+        <label for="username">Username</label>
+        <input id="username" class="input__username" type="text" name="username" required [ngModel]="config.username" #username="ngModel"
+        />
+      </p>
+      <p class="ms-firstrun-trial-feature__input ">
+        <label for="password">Password</label>
+        <input id="password" class="input__password" type="password" name="password" required [ngModel]="config.password" #password="ngModel"
+        />
+      </p>
+      <div class="ms-check">
+        <p>Remember Me</p>
+        <input id="remember" type="checkbox" class="ms-CheckBox" [ngModel]="rememberMe" name="remember" #remember="ngModel">
+      </div>
+
+      <button class="input__submit" type="submit" [disabled]="!f.valid">Login</button>
+    </form>
+  </div>
+  <!--Errors to be shown for form validation and incorrect submission -->
+  <br>
+  <br>
+  <div class="ms-MessageBar ms-MessageBar--error" *ngIf="(!connection.valid && connection.touched) || (!username.valid && username.touched) || (!password.valid && password.touched)">
+    <div class="ms-MessageBar-content">
+      <div class="ms-MessageBar-icon">
+        <i class="ms-Icon ms-Icon--ErrorBadge"></i>
+      </div>
+      <div class="ms-MessageBar-text">
+        Please enter valid credentials.
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="ms-MessageBar ms-MessageBar--error" *ngIf="error">
+    <div class="ms-MessageBar-content">
+      <div class="ms-MessageBar-icon">
+        <i class="ms-Icon ms-Icon--ErrorBadge"></i>
+      </div>
+      <div id="error" class="ms-MessageBar-text">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,57 @@
+<section *ngIf="!isLoggedIn" class="ms-firstrun-trial-feature__content ms-font-m ms-fontColor-neutralPrimary">
+  <h2 class="ms-font-xl ms-fontWeight-light">MLS Azure Authentication</h2>
+  <div class="ms-firstrun-trial-feature__login-panel">
+    <form class="ms-firstrun-trial-feature__form" (ngSubmit)="login(f)" #f="ngForm">
+      <p class="ms-firstrun-trial-feature__input ">
+        <label for="connection">Connection</label>
+        <input id="connection" class="input__username" type="text" name="connection" required [ngModel]="config.connection" #connection="ngModel"
+        />
+      </p>
+      <p class="ms-firstrun-trial-feature__input ">
+        <label for="tenant">Tenant</label>
+        <input id="tenant" class="input__username" type="text" name="tenant" required [ngModel]="config.tenant" #tenant="ngModel"
+        />
+      </p>
+      <p class="ms-firstrun-trial-feature__input ">
+        <label for="clientid">Client ID</label>
+        <input id="clientid" class="input__username" type="text" name="clientid" required [ngModel]="config.clientid" #clientid="ngModel"
+        />
+      </p>
+      <p class="ms-firstrun-trial-feature__input ">
+        <label for="resource">Resource</label>
+        <input id="resource" class="input__username" type="text" name="resource" required [ngModel]="config.resource" #resource="ngModel"
+        />
+      </p>
+
+      <div class="ms-check">
+        <p>Remember Me</p>
+        <input id="remember" type="checkbox" class="ms-CheckBox" name="remember" [ngModel]="rememberMe" #remember="ngModel">
+      </div>
+
+      <button class="input__submit" type="submit" [disabled]="!f.valid">Login</button>
+    </form>
+  </div>
+  <br>
+  <br>
+  <div class="ms-MessageBar ms-MessageBar--error" *ngIf="(!tenant.valid && tenant.touched) || (!clientid.valid && clientid.touched) || (!resource.valid && resource.touched) || (!connection.valid && connection.touched)">
+    <div class="ms-MessageBar-content">
+      <div class="ms-MessageBar-icon">
+        <i class="ms-Icon ms-Icon--ErrorBadge"></i>
+      </div>
+      <div class="ms-MessageBar-text">
+        Please enter valid credentials
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="ms-MessageBar ms-MessageBar--error" *ngIf="error">
+    <div class="ms-MessageBar-content">
+      <div class="ms-MessageBar-icon">
+        <i class="ms-Icon ms-Icon--ErrorBadge"></i>
+      </div>
+      <div id="error" class="ms-MessageBar-text">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+</section>

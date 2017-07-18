@@ -1,0 +1,35 @@
+<div class="service-container">
+    <p *ngIf="!isLoading && !mlsService.serviceSelected && services.length > 0" class="ms-fontSize-xl">Select a service:</p>
+    <p *ngIf="!isLoading && !mlsService.serviceSelected && services.length == 0" class="ms-fontSize-xl">No Services Available</p>
+    <p *ngIf="!isLoading && !mlsService.serviceSelected && services.length == 0" class="ms-fontSize-xl">To publish services, refer to <a href="https://docs.microsoft.com/en-us/r-server/operationalize/how-to-deploy-web-service-publish-manage-in-r#publish-and-update-web-services">here</a></p>
+
+    <!--Error message and retry button to be displayed when retrieval of services failed-->
+    <div class="ms-MessageBar ms-MessageBar--error" *ngIf="error">
+        <div class="ms-MessageBar-content">
+            <div class="ms-MessageBar-icon">
+                <i class="ms-Icon ms-Icon--ErrorBadge"></i>
+            </div>
+            <div class="ms-MessageBar-text">
+                {{errorMessage}}
+            </div>
+        </div>
+    </div>
+    <br>
+    <button class="ms-Button ms-Button--primary" type="submit" *ngIf="error" (click)="retry()"><span class="ms-Button-label">Retry</span></button>
+
+    <!-- List of services with distinctive attributes-->
+    <ul class="ms-List" *ngIf="!mlsService.serviceSelected">
+        <li class="ms-ListItem" tabindex="0" *ngFor="let service of services">
+            <span class="ms-ListItem-primaryText">{{service.name}}</span>
+            <span class="ms-ListItem-secondaryText">{{service.description}}</span>
+            <span class="ms-ListItem-tertiaryText">{{service.version}}</span>
+            <span class="ms-ListItem-metaText">{{service.creationTime | date:'medium'}}</span>
+            <a class="ms-Link" (click)="selected(service)">Select</a>
+        </li>
+    </ul>
+
+    <!--If a service is selected, the web-service component will be injected and shown-->
+    <div *ngIf="mlsService.serviceSelected">
+        <app-web-service [service]="selectedService"></app-web-service>
+    </div>
+</div>

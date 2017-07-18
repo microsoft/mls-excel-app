@@ -1,0 +1,63 @@
+<h2 class="ms-font-xl ms-fontWeight-semibold">{{service.name}}</h2>
+<!--Error message only displays if an error is triggered by an incorrect form submission-->
+<div class="ms-MessageBar ms-MessageBar--error" *ngIf="error">
+    <div class="ms-MessageBar-content">
+        <div class="ms-MessageBar-icon">
+            <i class="ms-Icon ms-Icon--ErrorBadge"></i>
+        </div>
+        <div class="ms-MessageBar-text">
+            {{errorMessage}}
+        </div>
+    </div>
+</div>
+<h4 class="ms-font-xl ms-fontWeight-light">Input Parameters</h4>
+<!--Service form populated by the service selected from the web-services component-->
+<form [formGroup]="serviceForm" (ngSubmit)="onSubmit()" novalidate>
+    <!-- Service Controls -->
+    <div formArrayName="inputParameters">
+        <div *ngFor="let parameter of serviceForm['controls']['inputParameters']['controls']; let i=index" [formGroupName]="i">
+            <!--The repeated parameter template-->
+            <div class="ms-TextField">
+                <label class="ms-Label">Name: {{ serviceForm.value.inputParameters[i].name }}</label>
+            </div>
+            <div class="ms-TextField">
+                <label class="ms-Label">Type: {{ serviceForm.value.inputParameters[i].type }}</label>
+            </div>
+            <div class="ms-TextField">
+                <div *ngIf="serviceForm.value.inputParameters[i].type != 'matrix' && serviceForm.value.inputParameters[i].type != 'vector' 
+                && serviceForm.value.inputParameters[i].type != 'data.frame'; else range">
+                    <label class="ms-Label">Value: {{ serviceForm.value.inputParameters[i].value }}</label>
+                </div>
+                <ng-template #range>
+                    <label class="ms-Label">Range: {{ serviceForm.value.inputParameters[i].value }}</label>
+                </ng-template>
+                <button class="ms-Button" type="button" (click)="onClickInput(i)">
+                    <span class="ms-Button-label">Select Data</span> 
+                </button>
+            </div>
+        </div>
+    </div>
+    <h4 class="ms-font-xl ms-fontWeight-light">Output Parameters</h4>
+    <div formArrayName="outputParameters">
+        <div *ngFor="let parameter of serviceForm['controls']['outputParameters']['controls']; let i=index" [formGroupName]="i">
+            <!--The repeated parameter template-->
+            <div class="ms-TextField">
+                <label class="ms-Label">Name: {{ serviceForm.value.outputParameters[i].name }}</label>
+            </div>
+            <div class="ms-TextField">
+                <label class="ms-Label">Type: {{ serviceForm.value.outputParameters[i].type }}</label>
+            </div>
+            <div class="ms-TextField">
+                <label class="ms-Label">Range: {{ serviceForm.value.outputParameters[i].value }}</label>
+                <button class="ms-Button" type="button" (click)="onClickOutput(i)">
+                    <span class="ms-Button-label">Select Location</span> 
+                </button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <button class="ms-Button ms-Button--primary" type="submit" [disabled]="submitted"><span class="ms-Button-label">Submit</span></button>
+</form>
+
+<!--Uncomment for error debugging within Excel-->
+<!--<p>{{feedback | json}}</p>-->

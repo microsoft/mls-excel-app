@@ -1,0 +1,30 @@
+<div class="ms-CommandBar ms-CommandBar--navBar" style="position: fixed; width: 100%; top: 0; z-index:1;">
+    <div class="ms-CommandBar-mainArea">
+        <ng-template [ngIf]="!authService.isAuthenticated()">
+            <div class="ms-CommandButton ms-CommandButton--pivot" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="ms-CommandButton-button" routerLink="/"> <span class="ms-CommandButton-label">Cloud</span>  </a>
+            </div>
+            <div class="ms-CommandButton ms-CommandButton--pivot" routerLinkActive="is-active">
+                <a class="ms-CommandButton-button" routerLink="/auth-admin"> <span class="ms-CommandButton-label">Local</span>  </a>
+            </div>
+        </ng-template>
+        <ng-template [ngIf]="mlsService.serviceSelected && authService.isAuthenticated()">
+            <div class="ms-CommandButton ms-CommandButton--pivot">
+                <button class="ms-CommandButton-button" (click)="back()">
+                    <span class="ms-CommandButton-icon ms-fontColor-themePrimary"><i class="ms-Icon ms-Icon--Back"></i></span> 
+                    <span class="ms-CommandButton-label">Back</span> 
+                </button>
+            </div>
+        </ng-template>
+        <ng-template [ngIf]="authService.isAuthenticated()">
+            <div class="ms-CommandBar-sideCommands">
+                <div class="ms-CommandButton ms-CommandButton--pivot">
+                    <button class="ms-CommandButton-button" (click)="logout()">
+                    <span class="ms-CommandButton-icon ms-fontColor-themePrimary"><i class="ms-Icon ms-Icon--OutOfOffice"></i></span> 
+                    <span class="ms-CommandButton-label">Logout</span> 
+                </button>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>
