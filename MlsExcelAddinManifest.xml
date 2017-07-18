@@ -6,14 +6,24 @@
           xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
           xsi:type="TaskPaneApp">
 
+  <!-- Begin Basic Settings: Add-in metadata, used for all versions of Office unless override provided. -->
+
+
   <Id>ca4441f5-fa0c-45cb-8b0a-7a7944ca76d2</Id>
+
+  <!--Version. Updates from the store only get triggered if there is a version change. -->
   <Version>1.0.0.0</Version>
   <ProviderName>Microsoft</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
+  <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
   <DisplayName DefaultValue="Machine Learning Server" />
   <Description DefaultValue="Machine Learning Server Excel Add-in for accessing service APIs deployed on your server"/>
+
+  <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
   <IconUrl DefaultValue="https://microsoft.github.io/mls-excel-app/assets/Button32x32.png" />
-  <SupportUrl DefaultValue="https://github.com/Microsoft/mls-excel-app">
+
+  <!--If you plan to submit this add-in to the Office Store, uncomment the SupportUrl element below-->
+  <!--<SupportUrl DefaultValue="[Insert the URL of a page that provides support information for the app]">-->
 
   <!-- Domains that will be allowed when navigating. For example, if you use ShowTaskpane and then have an href link, navigation will only be allowed if the domain is on this list. -->
   <AppDomains>
@@ -38,7 +48,8 @@
 
     <!-- The Hosts node is required. -->
     <Hosts>
-      <!-- Excel host is Workbook-->
+      <!-- Each host can have a different set of commands. -->
+      <!-- Excel host is Workbook, Word host is Document, and PowerPoint host is Presentation. -->
       <!-- Make sure the hosts you override match the hosts declared in the top section of the manifest. -->
       <Host xsi:type="Workbook">
         <!-- Form factor. Currently only DesktopFormFactor is supported. -->
@@ -103,6 +114,7 @@
       </Host>
     </Hosts>
 
+    <!-- You can use resources across hosts and form factors. -->
     <Resources>
       <bt:Images>
         <bt:Image id="MLServer.tpicon_16x16" DefaultValue="https://microsoft.github.io/mls-excel-app/assets/Button16x16.png" />
@@ -111,13 +123,16 @@
       </bt:Images>
       <bt:Urls>
         <bt:Url id="MLServer.Taskpane.Url" DefaultValue="https://microsoft.github.io/mls-excel-app/index.html" />
-        <bt:Url id="MLServer.GetStarted.LearnMoreUrl" DefaultValue="https://github.com/Microsoft/mls-excel-app" />
+        <bt:Url id="MLServer.GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
+        <bt:Url id="MLServer.DesktopFunctionFile.Url" DefaultValue="https://microsoft.github.io/mls-excel-app/function-file/function-file.html" />
       </bt:Urls>
+      <!-- ShortStrings max characters==125. -->
       <bt:ShortStrings>
         <bt:String id="MLServer.TaskpaneButton.Label" DefaultValue="Machine Learning Server" />
         <bt:String id="MLServer.Group1Label" DefaultValue="MLS" />
         <bt:String id="MLServer.GetStarted.Title" DefaultValue="Get started with your Machine Learning Server add-in!" />
       </bt:ShortStrings>
+      <!-- LongStrings max characters==250. -->
       <bt:LongStrings>
         <bt:String id="MLServer.TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane" />
         <bt:String id="MLServer.GetStarted.Description" DefaultValue="Your Machine Learning Server add-in loaded succesfully. Go to the HOME tab and click the 'MLS' button to get started." />
