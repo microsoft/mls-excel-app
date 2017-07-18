@@ -44,17 +44,7 @@ For Cloud authentication, the add-in **currently only supports Azure Active Dire
 - Resource
     * This is the GUID for the resource
 
-**NOTE:** If you are using AAD, please add https://microsoft.github.io/ and https://microsoft.github.io/mls-excel-app as endpoints on your Azure deployment of MLS.  Otherwise, you will not be able to access your MLS because Azure will not recognize the Add-in.  You will also need to add the tenant of your AAD portal to the XML Manifest file of this add-in so that Excel will trust your AAD portal.  To do this, please find this location in the MlsExcelAddinManifest.xml:
-
-    <!-- Domains that will be allowed when navigating. For example, if you use ShowTaskpane and then have an href link, navigation will only be allowed if the domain is on this list. -->
-    <AppDomains>
-    <AppDomain>https://login.windows.net</AppDomain>
-    <AppDomain>https://login.microsoftonline.com</AppDomain>
-    <AppDomain>[Insert your tenant here]</AppDomain>
-    </AppDomains>
-    <!--End Basic Settings. -->
-
-Then put your tenant in the noted spot.
+**NOTE:** If you are using AAD, please add https://microsoft.github.io/ and https://microsoft.github.io/mls-excel-app as endpoints on your Azure deployment of MLS.  Otherwise, you will not be able to access your MLS because Azure will not recognize the Add-in.
 
 If you choose to authenticate via Azure, you will be redirected to your specified Azure Active Directory (AAD) portal.  If you give incorrect specifications for your AAD portal, you will need to reload the add-in by clicking on it again
 in the **Home** tab.

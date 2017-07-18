@@ -30,7 +30,6 @@
   <AppDomains>
     <AppDomain>https://login.windows.net</AppDomain>
     <AppDomain>https://login.microsoftonline.com</AppDomain>
-    <AppDomain>deployrtest.onmicrosoft.com</AppDomain>
   </AppDomains>
   <!--End Basic Settings. -->
 
