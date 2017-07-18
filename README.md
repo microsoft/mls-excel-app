@@ -44,7 +44,7 @@ For Cloud authentication, the add-in **currently only supports Azure Active Dire
 - Resource
     * This is the GUID for the resource
 
-**NOTE:** If you are using AAD, please add https://brandonkoch6.github.io/ and https://brandonkoch6.github.io/mls-excel-app as endpoints on your Azure deployment of MLS.  Otherwise, you will not be able to access your MLS because Azure will not recognize the Add-in.  You will also need to add the tenant of your AAD portal to the XML Manifest file of this add-in so that Excel will trust your AAD portal.  To do this, please find this location in the MlsExcelAddinManifest.xml:
+**NOTE:** If you are using AAD, please add https://microsoft.github.io/ and https://microsoft.github.io/mls-excel-app as endpoints on your Azure deployment of MLS.  Otherwise, you will not be able to access your MLS because Azure will not recognize the Add-in.  You will also need to add the tenant of your AAD portal to the XML Manifest file of this add-in so that Excel will trust your AAD portal.  To do this, please find this location in the MlsExcelAddinManifest.xml:
 
     <!-- Domains that will be allowed when navigating. For example, if you use ShowTaskpane and then have an href link, navigation will only be allowed if the domain is on this list. -->
     <AppDomains>
@@ -67,7 +67,7 @@ in the **Home** tab.
 
 For Local authentication, you first **need to ensure CORS is enabled on all of your deployed web nodes**.  To do this, access the *MRS-O16N/webnode/appsettings.json* on each of your web nodes and find *CORS* in the .json file.  If it is currently false and the origins are empty, replace what is currently there with the following:
 
-`"CORS": {"Enabled": true, "Origins": ["https://brandonkoch6.github.io", "https://brandonkoch6.github.io/mls-excel-app"]},`
+`"CORS": {"Enabled": true, "Origins": ["https://microsoft.github.io", "https://microsoft.github.io/mls-excel-app"]},`
 
 If it is already set to true, just add the two additional origins listed above.
 
