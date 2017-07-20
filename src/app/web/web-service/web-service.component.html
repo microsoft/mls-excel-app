@@ -15,47 +15,33 @@
 <form [formGroup]="serviceForm" (ngSubmit)="onSubmit()" novalidate>
     <!-- Service Controls -->
     <div formArrayName="inputParameters">
-        <div *ngFor="let parameter of serviceForm['controls']['inputParameters']['controls']; let i=index" [formGroupName]="i">
-            <!--The repeated parameter template-->
-            <div class="ms-TextField">
-                <label class="ms-Label">Name: {{ serviceForm.value.inputParameters[i].name }}</label>
-            </div>
-            <div class="ms-TextField">
-                <label class="ms-Label">Type: {{ serviceForm.value.inputParameters[i].type }}</label>
-            </div>
-            <div class="ms-TextField">
-                <div *ngIf="serviceForm.value.inputParameters[i].type != 'matrix' && serviceForm.value.inputParameters[i].type != 'vector' 
-                && serviceForm.value.inputParameters[i].type != 'data.frame'; else range">
-                    <label class="ms-Label">Value: {{ serviceForm.value.inputParameters[i].value }}</label>
-                </div>
+        <ul class="ms-List">
+            <li class="ms-ListItem" tabindex="0" *ngFor="let parameter of serviceForm['controls']['inputParameters']['controls']; let i=index" [formGroupName]="i">
+                <span class="ms-ListItem-primaryText">{{ serviceForm.value.inputParameters[i].name }}</span>
+                <span class="ms-ListItem-secondaryText" *ngIf="serviceForm.value.inputParameters[i].type != 'matrix' && serviceForm.value.inputParameters[i].type != 'vector' 
+                && serviceForm.value.inputParameters[i].type != 'data.frame'; else range">Value: {{ serviceForm.value.inputParameters[i].value }}</span>
                 <ng-template #range>
-                    <label class="ms-Label">Range: {{ serviceForm.value.inputParameters[i].value }}</label>
+                    <span class="ms-ListItem-secondaryText">Range: {{ serviceForm.value.inputParameters[i].value }}</span>
                 </ng-template>
+                <span class="ms-ListItem-tertiaryText">Type: {{ serviceForm.value.inputParameters[i].type }}</span>
                 <button class="ms-Button" type="button" (click)="onClickInput(i)" [disabled]="submitted">
                     <span class="ms-Button-label">Select Data</span> 
                 </button>
-            </div>
-            <br>
-        </div>
+            </li>
+        </ul>
     </div>
     <h4 class="ms-font-xl ms-fontWeight-light">Output Parameters</h4>
     <div formArrayName="outputParameters">
-        <div *ngFor="let parameter of serviceForm['controls']['outputParameters']['controls']; let i=index" [formGroupName]="i">
-            <!--The repeated parameter template-->
-            <div class="ms-TextField">
-                <label class="ms-Label">Name: {{ serviceForm.value.outputParameters[i].name }}</label>
-            </div>
-            <div class="ms-TextField">
-                <label class="ms-Label">Type: {{ serviceForm.value.outputParameters[i].type }}</label>
-            </div>
-            <div class="ms-TextField">
-                <label class="ms-Label">Range: {{ serviceForm.value.outputParameters[i].value }}</label>
+        <ul class="ms-List">
+            <li class="ms-ListItem" tabindex="0" *ngFor="let parameter of serviceForm['controls']['outputParameters']['controls']; let i=index" [formGroupName]="i">
+                <span class="ms-ListItem-primaryText">{{ serviceForm.value.outputParameters[i].name }}</span>
+                <span class="ms-ListItem-secondaryText">Range: {{ serviceForm.value.outputParameters[i].value }}</span>
+                <span class="ms-ListItem-tertiaryText">Type: {{ serviceForm.value.outputParameters[i].type }}</span>
                 <button class="ms-Button" type="button" (click)="onClickOutput(i)" [disabled]="submitted">
                     <span class="ms-Button-label">Select Location</span> 
                 </button>
-            </div>
-            <br>
-        </div>
+            </li>
+        </ul>
     </div>
     <br>
     <button class="ms-Button ms-Button--primary" type="submit" [disabled]="submitted"><span class="ms-Button-label">Submit</span></button>
