@@ -57,8 +57,8 @@ export class MlsService {
                     let i = 0;
                     const temp = {};
                     while (i < element.value.length) {
-                        const randomLabel = 'c' + i;
-                        temp[randomLabel] = element.value[i];
+                        const label = element.labels[i]
+                        temp[label] = element.value[i];
                         i++;
                     }
                     body[element.name] = temp;
@@ -82,7 +82,7 @@ export class MlsService {
                 (error: Response) => {
                     /*WebService Component is currently handling error messaging
                     so that the necessary rerouting can take place if needed to reauthenticate*/
-                    return Observable.throw(error);
+                    return Observable.throw(body);
                 });
         } else {
             return Observable.throw('Invalid parameters');

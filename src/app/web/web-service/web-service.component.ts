@@ -47,6 +47,7 @@ export class WebServiceComponent implements OnInit, OnDestroy {
   // Included for debugging within Excel - to utilize, uncomment the feedback data bindings
   // in the component template: web-service.component.html
   public feedback: string;
+  public feedback2: string;
 
   constructor(private fb: FormBuilder, private excelService: ExcelService,
     public mlsService: MlsService, public authService: AuthService, private router: Router) {
@@ -99,7 +100,9 @@ export class WebServiceComponent implements OnInit, OnDestroy {
         type: element.type,
         binding: null,
         range: null,
-        value: null
+        value: null,
+        labels: [],
+        display: null
       };
       this.inputParameters.push(temp);
     });
@@ -110,7 +113,9 @@ export class WebServiceComponent implements OnInit, OnDestroy {
         type: element.type,
         binding: null,
         range: null,
-        value: null
+        value: null,
+        labels: [],
+        display: null
       };
       this.outputParameters.push(temp);
     });
@@ -139,6 +144,9 @@ export class WebServiceComponent implements OnInit, OnDestroy {
               } else {
                 i = i + 1;
               }
+            }
+            if(this.inputParameters[i].type === 'data.frame') {
+              this.inputParameters[i].labels = result.shift();
             }
             this.inputParameters[i].value = this.transpose(result);
             if (this.inputParameters[i].type === 'data.frame' ||
@@ -183,7 +191,7 @@ export class WebServiceComponent implements OnInit, OnDestroy {
         // Access the data by name while looping through output parameters
         this.error = false;
         let i = 0;
-        this.outputParameters.forEach(element => {
+        this.outputParameters.forEach((element: ExcelParameter) => {
           // temporary name to identify the parameter
           const name = element.name;
           // Set the data value in the parameter
@@ -191,27 +199,34 @@ export class WebServiceComponent implements OnInit, OnDestroy {
           if (element.type === 'data.frame') {
             const parameter = data[name];
             const excelData = [];
+            element.labels = [];
             for (const key in parameter) {
               if (parameter.hasOwnProperty(key)) {
+                element.labels.push(key);
                 const val = parameter[key];
                 excelData.push(val);
               }
             }
 
             element.value = this.transpose(excelData);
+            element.display = element.value;
+            element.display.unshift(element.labels);
 
           } else if (element.type === 'vector') {
             element.value = this.transpose([data[name]]);
+            element.display = element.value;
           } else if (element.type === 'matrix') {
             element.value = this.transpose(data[name]);
+            element.display = element.value;
           } else {
             element.value = [[data[name]]];
+            element.display = element.value;
           }
 
           // Sets the value(s) in the output binding and expands the cells
           // from the first cell in the binding according to however
           // many cells is needed for the output
-          this.excelService.setFlexValues(element.name, element.value)
+          this.excelService.setFlexValues(element.name, element.display)
             .then(() => {
               this.error = false;
               this.updateOutput = true;
@@ -277,7 +292,11 @@ export class WebServiceComponent implements OnInit, OnDestroy {
         })
         // Gets the value of the range of cells from the binding
         .then(() => this.excelService.getValue(name))
-        .then(result => {
+        .then((result: any[][]) => {
+          // If it's a data.frame, get the labels
+          if(this.inputParameters[id].type === 'data.frame') {
+            this.inputParameters[id].labels = result.shift();
+          }
           // Sets the value after transposing from row/col to col/row
           this.inputParameters[id].value = this.transpose(result);
           // If a ranged parameter, show the range.  Otherwise, show the value to the user in the form field

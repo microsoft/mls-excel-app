@@ -26,4 +26,6 @@ export class ExcelParameter {
     binding: any;
     range: string;
     value: any;
+    labels: string[];
+    display: any[][];
 }
