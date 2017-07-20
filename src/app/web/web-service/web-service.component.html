@@ -31,7 +31,7 @@
                 <ng-template #range>
                     <label class="ms-Label">Range: {{ serviceForm.value.inputParameters[i].value }}</label>
                 </ng-template>
-                <button class="ms-Button" type="button" (click)="onClickInput(i)">
+                <button class="ms-Button" type="button" (click)="onClickInput(i)" [disabled]="submitted">
                     <span class="ms-Button-label">Select Data</span> 
                 </button>
             </div>
@@ -49,7 +49,7 @@
             </div>
             <div class="ms-TextField">
                 <label class="ms-Label">Range: {{ serviceForm.value.outputParameters[i].value }}</label>
-                <button class="ms-Button" type="button" (click)="onClickOutput(i)">
+                <button class="ms-Button" type="button" (click)="onClickOutput(i)" [disabled]="submitted">
                     <span class="ms-Button-label">Select Location</span> 
                 </button>
             </div>
