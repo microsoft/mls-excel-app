@@ -23,7 +23,7 @@
             <span class="ms-ListItem-primaryText">{{service.name}}</span>
             <span class="ms-ListItem-secondaryText">{{service.description}}</span>
             <span class="ms-ListItem-tertiaryText">{{service.version}}</span>
-            <span class="ms-ListItem-metaText">{{service.creationTime | date:'medium'}}</span>
+            <span class="ms-ListItem-tertiaryText">{{service.creationTime | date:'medium'}}</span>
             <a class="ms-Link" (click)="selected(service)">Select</a>
         </li>
     </ul>
