@@ -62,9 +62,9 @@ describe('WebServiceComponent', function () {
     it('should create component', () => expect(comp).toBeDefined());
 
     it('input parameter should exist', () => {
-        const de = fixture.debugElement.query(By.css('.ms-Label'));
+        const de = fixture.debugElement.query(By.css('.ms-ListItem-primaryText'));
         const el = de.nativeElement;
-        expect(el.innerText).toContain('Name: test_param')
+        expect(el.innerText).toContain('test_param')
     });
 
     it('successful submission', fakeAsync(() => {
@@ -73,7 +73,7 @@ describe('WebServiceComponent', function () {
             // Using a fake call to 'simulate'
         });
 
-        const button = fixture.debugElement.query(By.css('button'));
+        const button = fixture.debugElement.query(By.css('.ms-Button--primary'));
         button.nativeElement.click();
         fixture.detectChanges();
         tick();

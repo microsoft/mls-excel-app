@@ -145,7 +145,7 @@ export class WebServiceComponent implements OnInit, OnDestroy {
                 i = i + 1;
               }
             }
-            if(this.inputParameters[i].type === 'data.frame') {
+            if (this.inputParameters[i].type === 'data.frame') {
               this.inputParameters[i].labels = result.shift();
             }
             this.inputParameters[i].value = this.transpose(result);
@@ -294,7 +294,7 @@ export class WebServiceComponent implements OnInit, OnDestroy {
         .then(() => this.excelService.getValue(name))
         .then((result: any[][]) => {
           // If it's a data.frame, get the labels
-          if(this.inputParameters[id].type === 'data.frame') {
+          if (this.inputParameters[id].type === 'data.frame') {
             this.inputParameters[id].labels = result.shift();
           }
           // Sets the value after transposing from row/col to col/row

@@ -48,12 +48,6 @@ describe('AppComponent', () => {
 
     expect(de).not.toBeNull();
   })
-
-  it('should have a footer', () => {
-    const de = fixture.debugElement.query(By.directive(FooterComponent));
-
-    expect(de).not.toBeNull();
-  })
 });
 
 class AuthServiceStub {
