@@ -261,6 +261,9 @@ When the validation process is complete, you will receive a message to let you k
 ### Current State
 I have not yet submitted for approval in the Office Store.  However, the add-in in its current state should meet all requirements.
 
+## Additional Help from Office Team
+Michael Zlatkovsky is knowledgeable about building Office Add-ins, and you can reach out to him internally or just post a question on Stack Overflow with the tag office-js.  He will likely respond.  No one on the Office team is very knowledgable about using Angular to develop an Add-in, and the current team does not have Office Fabric libraries for Angular 2/4.  There is some support for AngularJS, but that is a very different architecture.  As such, any Angular questions you have should be directed at the Angular community and not the Office team.  If your questions is specific to the Office JS library though, the Office team will be able to help you.
+
 ## License
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact opencode@microsoft.com with any additional questions or comments. 
 
