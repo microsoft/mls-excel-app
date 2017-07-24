@@ -241,6 +241,26 @@ In order to update the deployment, you need to have the project cloned to your d
 
 This will minify all of the necessary files and place them in the [docs](docs/) directory, which is where GitHub Pages will look for the files needed for them to host the application.  Then push the new files to the master branch.
 
+## Getting in the Office Store
+
+A teammember will need to be chosen to follow the process through, since it can take a while.  The steps are as follows:
+
+- [Register as an app developer](https://developer.microsoft.com/en-us/store/register)
+- Submit add-in through your developer account to the Office Store for approval to be published there
+
+### Approval process
+In order for the add-in to be approved, it must fulfill these requirements:
+- Free of viruses
+- Must not contain inadmissible or offensive material
+- Must be stable and functional
+- Any descriptions or support documentation must be accurate
+- Your add-in must work on all applications and platforms specific in the Host and Requirements elements in your manifest.
+
+When the validation process is complete, you will receive a message to let you knwo that either your submission is approved, or you need to make changes and resubmit.  Once approved, it can be listed in the Office Add-in store.
+
+### Current State
+I have not yet submitted for approval in the Office Store.  However, the add-in in its current state should meet all requirements.
+
 ## License
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact opencode@microsoft.com with any additional questions or comments. 
 
