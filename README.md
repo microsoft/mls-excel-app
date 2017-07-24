@@ -4,7 +4,7 @@
 This application makes customer web service APIs from the Microsoft Machine Learning Server available for use as an Excel Add-in.  When the add-in is loaded, users can authenticate with their deployed ML Server, pick their desired web service API, and then select data within Excel for each required parameter of the web service.  After which, the user may submit the data and receive an output wherever they specify in the Excel sheet.  The output will dynamically update when input data changes as long as the user stays on that selected service in the Add-in.
 
 ## Demo
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=GY2xo4mEl5Q" frameborder="0" allowfullscreen></iframe>
+You may watch the video on YouTube [here](https://www.youtube.com/watch?v=GY2xo4mEl5Q)
 
 ## Requirements
 Excel 2016 or Office Online
