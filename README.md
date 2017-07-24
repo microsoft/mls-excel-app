@@ -235,7 +235,20 @@ If you would like to add a new test file, just ensure that the file name ends wi
 ### Deployment
 This application is currently deployed via **GitHub Pages** in this repository.  If you are unfamiliar with GitHub Pages, please refer to their documentation [here](https://pages.github.com/).
 
-In order to update the deployment, you need to have the project cloned to your development machine as instructed in the beginning of this development section and the necessary prerequisites of Node.js, npm, and the Angular CLI.  Then open a terminal at the root of the project and use the following command: 
+In order to update the deployment, you need to have the project cloned to your development machine as instructed in the beginning of this development section and the necessary prerequisites of Node.js, npm, and the Angular CLI.
+
+You need to edit the ADAL config in [src/app/services/auth.service.ts](src/app/services/auth.service.ts).  Find this section in the top of the file:
+
+    // Production development
+    redirectUri: window.location.origin + '/mls-excel-app',
+    postLogoutRedirectUri: window.location.origin + '/mls-excel-app',
+    // Local development
+    /* redirectUri: window.location.origin + '/',
+    postLogoutRedirectUri: window.location.origin + '/', */
+
+Comment the redirect and post logout URIs for local development and uncomment the production development ones.  Save the file.  You will need to change this back if you would like to run it locally.
+
+Then open a terminal at the root of the project and use the following command: 
 
 `ng build --prod --output-path docs --base-href mls-excel-app`
 
