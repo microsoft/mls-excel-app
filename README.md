@@ -227,7 +227,7 @@ All of the integration/unit tests were written in [Jasmine](https://jasmine.gith
 
 If you are unfamiliar with Jasmine/Karma, please refer to the Angular documentation located [here](https://angular.io/guide/testing)
 
-Currently the Karma Test Runner runs all the Jasmine tests in the project on Chrome, so please ensure [Google Chrome](https://www.google.com/chrome/browser/desktop/index.html?brand=CHBD&gclid=CjwKCAjw16HLBRBFEiwAElREqOwdw2baDVs4aPux9uuA1DZdb9lWx9KcrasZvIo00mXtYKaHcW12yhoClGoQAvD_BwE) is installed.
+Currently the Karma Test Runner runs all the Jasmine tests in the project on Chrome, IE, and Firefox, so please ensure [Google Chrome](https://www.google.com/chrome/browser/desktop/index.html?brand=CHBD&gclid=CjwKCAjw16HLBRBFEiwAElREqOwdw2baDVs4aPux9uuA1DZdb9lWx9KcrasZvIo00mXtYKaHcW12yhoClGoQAvD_BwE) is installed, [Firefox](https://www.mozilla.org/en-US/firefox/new/?scene=2) is installed, and [Internet Explorer](https://www.microsoft.com/en-us/download/internet-explorer.aspx) is installed.  If you would like to disable one of these browsers or add an additional browser to check, please check the [Karma Configuration File](karma.conf.js) and either comment out the browsers you don't want to run or install another browser test runner via npm and add it to the configuration file.
 
 To run the tests, open a terminal at the root directory and use the command `ng test`
 
