@@ -25,8 +25,8 @@ export class AuthService {
         redirectUri: window.location.origin + '/mls-excel-app',
         postLogoutRedirectUri: window.location.origin + '/mls-excel-app',
         // Local development
-        //redirectUri: window.location.origin + '/',
-        //postLogoutRedirectUri: window.location.origin + '/',
+        // redirectUri: window.location.origin + '/',
+        // postLogoutRedirectUri: window.location.origin + '/',
     };
 
     constructor(private adalService: AdalService, private http: Http) { }
