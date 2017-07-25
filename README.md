@@ -52,13 +52,13 @@ For Cloud authentication, the add-in **currently only supports Azure Active Dire
 If you choose to authenticate via Azure, you will be redirected to your specified Azure Active Directory (AAD) portal.  If you give incorrect specifications for your AAD portal, you will need to reload the add-in by clicking on it again
 in the **Home** tab.
 
-### Local
+### On Premises
 
 * LDAP
 * LDAP-S
 * Local Administrator
 
-For Local authentication, you first **need to ensure CORS is enabled on all of your deployed web nodes**.  To do this, access the *MRS-O16N/webnode/appsettings.json* on each of your web nodes and find *CORS* in the .json file.  If it is currently false and the origins are empty, replace what is currently there with the following:
+For On Premises authentication, you first **need to ensure CORS is enabled on all of your deployed web nodes**.  To do this, access the *MRS-O16N/webnode/appsettings.json* on each of your web nodes and find *CORS* in the .json file.  If it is currently false and the origins are empty, replace what is currently there with the following:
 
 `"CORS": {"Enabled": true, "Origins": ["https://microsoft.github.io", "https://microsoft.github.io/mls-excel-app"]},`
 
@@ -86,7 +86,7 @@ Once you have authenticated, your services will be automatically populated in th
 
 ### Selected Service
 
-After selecting a service, you will be shown the required input and output parameters and their respective data types that you must give in order to have a successful submission.  This is shown in the image below:
+After selecting a service, you will be shown the required input and output parameters and their respective data types that you must give in order to have a successful submission.  All data types that are supported in the Machine Learning Server are supported for the add-in.  Please note that everything is column-wise.  For example, if your data type of your parameter is a vector.  It needs to be a column-vector.  With a data frame, it needs to be columns of data with the labels at the top.
 
 <img alt="screenshot" src="readme_assets/selectedService.png">
 

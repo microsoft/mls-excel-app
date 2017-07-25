@@ -25,8 +25,8 @@ export class AuthService {
         redirectUri: window.location.origin + '/mls-excel-app',
         postLogoutRedirectUri: window.location.origin + '/mls-excel-app',
         // Local development
-        /* redirectUri: window.location.origin + '/',
-        postLogoutRedirectUri: window.location.origin + '/', */
+        //redirectUri: window.location.origin + '/',
+        //postLogoutRedirectUri: window.location.origin + '/',
     };
 
     constructor(private adalService: AdalService, private http: Http) { }
@@ -48,7 +48,6 @@ export class AuthService {
         this.adalConfig.clientId = resource;
         this.adalConfig.tenant = tenant;
         this.adalService.init(this.adalConfig);
-        console.log('correctly configured adal service');
     }
 
     // ADMIN/LDAP/LDAP-S Methods
