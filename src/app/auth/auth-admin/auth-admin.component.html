@@ -17,11 +17,6 @@
         <input id="password" class="input__password" type="password" name="password" required [ngModel]="config.password" #password="ngModel"
         />
       </p>
-      <div class="ms-check">
-        <p>Remember Me</p>
-        <input id="remember" type="checkbox" class="ms-CheckBox" [ngModel]="rememberMe" name="remember" #remember="ngModel">
-      </div>
-
       <button class="input__submit" type="submit" [disabled]="!f.valid">Login</button>
     </form>
   </div>

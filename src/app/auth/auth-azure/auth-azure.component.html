@@ -22,12 +22,6 @@
         <input id="resource" class="input__username" type="text" name="resource" required [ngModel]="config.resource" #resource="ngModel"
         />
       </p>
-
-      <div class="ms-check">
-        <p>Remember Me</p>
-        <input id="remember" type="checkbox" class="ms-CheckBox" name="remember" [ngModel]="rememberMe" #remember="ngModel">
-      </div>
-
       <button class="input__submit" type="submit" [disabled]="!f.valid">Login</button>
     </form>
   </div>
