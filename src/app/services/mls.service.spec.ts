@@ -1,5 +1,5 @@
 import { AuthService } from './auth.service';
-import { AdalService } from 'ng2-adal/core';
+import { AdalService } from 'ng2-adal/dist/core';
 import { MlsService } from './mls.service';
 import { HttpModule, Http, XHRBackend, Response, ResponseOptions, ResponseType } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';

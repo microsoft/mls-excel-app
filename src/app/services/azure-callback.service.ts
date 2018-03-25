@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
 import { AuthService } from './auth.service';
-import { AdalService } from 'ng2-adal/core';
+import { AdalService } from 'ng2-adal/dist/core';
 
 // Guard that handles the callback when AAD reroutes back to the application
 // The Guard gets the new authentication data from the session, and rebuilds the ADAL service
