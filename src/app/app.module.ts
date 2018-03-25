@@ -18,7 +18,7 @@ import { WebServicesComponent } from './web/web-services/web-services.component'
 import { LoaderComponent } from './loader/loader.component';
 
 // Services
-import { AdalService } from 'ng2-adal/core';
+import { AdalService } from 'ng2-adal/dist/core';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { AzureCallback } from './services/azure-callback.service';
